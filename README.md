@@ -1,24 +1,2 @@
-# vue_demo
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# 算法练习
+##  使用vue框架，同时练习使用js语言编写算法。目前没有后端，只有前端。
