@@ -11,7 +11,7 @@
                                 <a class="nav-link"  href="#" v-on:click="onLoadBody('fastsort')">快速排序</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="#">归并排序</a>
+                                <a class="nav-link"  href="#" v-on:click="onLoadBody('mergesort')">归并排序</a>
                             </li>
                         </ul>
                     </li>
@@ -39,6 +39,7 @@
 <script>
 import fastsort from '../components/fast-sort';
 import appindex from "@/components/appindex";
+import mergesort from '../components/merge-sort';
     export default {
       name: 'Home',
       data(){
@@ -54,7 +55,8 @@ import appindex from "@/components/appindex";
       },
       components: {
           fastsort,
-          appindex
+          appindex,
+          mergesort
       }
     }
 </script>

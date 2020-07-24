@@ -50,6 +50,17 @@
         </div>
         <div class="card">
             <div class="card-header">
+                <h2>排序结果</h2>
+            </div>
+            <div class="card-body">
+                <span style="float: left;font-size: 30px">{{sort_final}}</span>
+            </div>
+            <div class="card-footer">
+                <h2></h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
                 <h2>排序过程</h2>
             </div>
             <div class="card-body">
@@ -73,17 +84,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <h2>排序结果</h2>
-            </div>
-            <div class="card-body">
-                <span style="float: left;font-size: 30px">{{sort_final}}</span>
-            </div>
-            <div class="card-footer">
-                <h2></h2>
             </div>
         </div>
     </div>
