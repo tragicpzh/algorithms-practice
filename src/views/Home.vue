@@ -27,6 +27,9 @@
                           <li class="nav-item">
                                 <a class="nav-link" href="#" v-on:click="onLoadBody('stack')">栈</a>
                           </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#" v-on:click="onLoadBody('queue')">队列</a>
+                          </li>
                       </ul>
                     </li>
                     <li class="nav-item">
@@ -54,6 +57,7 @@ import mergesort from '../components/merge-sort';
 import shellsort from '../components/shell-sort';
 import heapsort from '../components/heap-sort';
 import stack from '../components/stack'
+import queue from '../components/queue'
     export default {
       name: 'Home',
       data(){
@@ -73,7 +77,8 @@ import stack from '../components/stack'
           mergesort,
           shellsort,
           heapsort,
-          stack
+          stack,
+          queue
       }
     }
 </script>
