@@ -5,7 +5,7 @@
               <div class="nav ">
                 <ul class="nav nav-pills flex-column border border-dark border-circle">
                     <li class="nav-item dropdown dropright">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >算法</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >排序</a>
                         <ul class="nav-item dropdown-menu">
                             <li class="nav-item">
                                 <a class="nav-link"  href="#" v-on:click="onLoadBody('fastsort')">快速排序</a>
@@ -15,6 +15,9 @@
                             </li>
                             <li>
                                 <a class="nav-link" href="#" v-on:click="onLoadBody('shellsort')">希尔排序</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#" v-on:click="onLoadBody('heapsort')">堆排序</a>
                             </li>
                         </ul>
                     </li>
@@ -44,6 +47,7 @@ import fastsort from '../components/fast-sort';
 import appindex from "@/components/appindex";
 import mergesort from '../components/merge-sort';
 import shellsort from '../components/shell-sort';
+import heapsort from '../components/heap-sort';
     export default {
       name: 'Home',
       data(){
@@ -61,7 +65,8 @@ import shellsort from '../components/shell-sort';
           fastsort,
           appindex,
           mergesort,
-          shellsort
+          shellsort,
+          heapsort
       }
     }
 </script>
