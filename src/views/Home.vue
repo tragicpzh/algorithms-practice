@@ -21,8 +21,13 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link"  href="#">数据结构</a>
+                    <li class="nav-item dropdown dropright">
+                      <a class="dropdown-toggle" data-toggle="dropdown"  href="#">数据结构</a>
+                      <ul class="nav-item dropdown-menu">
+                          <li class="nav-item">
+                                <a class="nav-link" href="#" v-on:click="onLoadBody('stack')">栈</a>
+                          </li>
+                      </ul>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link"  href="#">图论</a>
@@ -48,6 +53,7 @@ import appindex from "@/components/appindex";
 import mergesort from '../components/merge-sort';
 import shellsort from '../components/shell-sort';
 import heapsort from '../components/heap-sort';
+import stack from '../components/stack'
     export default {
       name: 'Home',
       data(){
@@ -66,7 +72,8 @@ import heapsort from '../components/heap-sort';
           appindex,
           mergesort,
           shellsort,
-          heapsort
+          heapsort,
+          stack
       }
     }
 </script>

@@ -9,8 +9,11 @@ import 'font-awesome/css/font-awesome.min.css'
 import 'bootstrap-table/dist/bootstrap-table.min.css'
 import 'bootstrap-table/dist/bootstrap-table.min.js'
 import 'bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js'
+import ElementUI from 'element-ui'
+import "element-ui/lib/theme-chalk/index.css"
 
 Vue.config.productionTip = false
+Vue.use(ElementUI)
 
 new Vue({
   router,
