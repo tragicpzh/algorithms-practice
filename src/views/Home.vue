@@ -13,6 +13,9 @@
                             <li class="nav-item">
                                 <a class="nav-link"  href="#" v-on:click="onLoadBody('mergesort')">归并排序</a>
                             </li>
+                            <li>
+                                <a class="nav-link" href="#" v-on:click="onLoadBody('shellsort')">希尔排序</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -40,6 +43,7 @@
 import fastsort from '../components/fast-sort';
 import appindex from "@/components/appindex";
 import mergesort from '../components/merge-sort';
+import shellsort from '../components/shell-sort';
     export default {
       name: 'Home',
       data(){
@@ -56,7 +60,8 @@ import mergesort from '../components/merge-sort';
       components: {
           fastsort,
           appindex,
-          mergesort
+          mergesort,
+          shellsort
       }
     }
 </script>
