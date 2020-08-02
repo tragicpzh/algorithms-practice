@@ -30,6 +30,9 @@
                           <li class="nav-item">
                               <a class="nav-link" href="#" v-on:click="onLoadBody('queue')">队列</a>
                           </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#" v-on:click="onLoadBody('linkedlist')">链表</a>
+                          </li>
                       </ul>
                     </li>
                     <li class="nav-item">
@@ -58,6 +61,7 @@ import shellsort from '../components/shell-sort';
 import heapsort from '../components/heap-sort';
 import stack from '../components/stack'
 import queue from '../components/queue'
+import linkedlist from '../components/linked-list'
     export default {
       name: 'Home',
       data(){
@@ -78,7 +82,8 @@ import queue from '../components/queue'
           shellsort,
           heapsort,
           stack,
-          queue
+          queue,
+          linkedlist
       }
     }
 </script>

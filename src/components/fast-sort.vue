@@ -91,6 +91,7 @@
 
 <script>
     import $ from 'jquery'
+    import {reactive,toRefs} from '@vue/composition-api'
     $(function(){
         $.fn.autoHeight = function(){
             function autoHeight(elem){
@@ -109,45 +110,43 @@
     })
     export default {
         name: "fast-sort",
-        data(){
-            return{
+        setup(){
+            const state=reactive({
                 rand_min:0,
                 rand_max:100,
                 rand_size:0,
                 sort_data:'请输入数据',
-                sort_datas: [],
+                sort_datas:[],
                 sort_final:''
+            });
+            const reSet=function(){
+                state.rand_min=0;
+                state.rand_max=100;
+                state.rand_size=0;
             }
-        },
-        methods:{
-            reSet(){
-                this.rand_min=0;
-                this.rand_max=100;
-                this.rand_size=0;
-            },
-            fast_sort_flex(){
-              let arr=this.sort_data.split(",");
-              this.sort_final=this.fast_sort(arr).join(',');
-            },
-            fast_sort_rand(){
-                let cnt=this.rand_size;
+            const fast_sort_flex=function(){
+                let arr=state.sort_data.split(",");
+                state.sort_final=fast_sort(arr).join(',');
+            }
+            const fast_sort_rand=function(){
+                let cnt=state.rand_size;
                 let arr=[];
-                let size=this.rand_max-this.rand_min;
-                console.log(this.rand_min);
-                console.log(this.rand_max);
+                let size=state.rand_max-state.rand_min;
+                console.log(state.rand_min);
+                console.log(state.rand_max);
                 console.log(size);
                 while(cnt--){
                     let tmp=Math.floor(Math.random()*(size+1));
-                    arr.push(tmp+parseInt(this.rand_min));
+                    arr.push(tmp+parseInt(state.rand_min));
                 }
                 console.log(arr);
-                this.sort_final=this.fast_sort(arr).join(',');
-                console.log(this.sort_final);
-            },
-            fast_sort(v){
+                state.sort_final=fast_sort(arr).join(',');
+                console.log(state.sort_final);
+            }
+            const fast_sort=function(v){
                 let arr=v.slice(0);
-                this.sort_datas=[];
-                var track=this.sort_datas;
+                state.sort_datas=[];
+                var track=state.sort_datas;
                 return (function f(v) {
                     let arr=v.slice(0);
                     let key=arr[0];
@@ -184,6 +183,13 @@
                     let end=left.concat(right);
                     return end;
                 })(arr)
+            }
+            return{
+                ...toRefs(state),
+                reSet,
+                fast_sort_flex,
+                fast_sort_rand,
+                fast_sort
             }
         }
     }

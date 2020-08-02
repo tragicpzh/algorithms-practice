@@ -100,7 +100,7 @@
 
 <script>
     import $ from 'jquery'
-
+    import {reactive,toRefs} from '@vue/composition-api'
     $(function () {
         $.fn.autoHeight = function () {
             function autoHeight(elem) {
@@ -120,46 +120,44 @@
     })
     export default {
         name: "heap-sort",
-        data() {
-            return {
+        setup(){
+            const state=reactive({
                 rand_min: 0,
                 rand_max: 100,
                 rand_size: 0,
                 sort_data: '请输入数据',
                 sort_datas: [],
                 sort_final: ''
+            })
+            const reSet=function() {
+                state.rand_min = 0;
+                state.rand_max = 100;
+                state.rand_size = 0;
             }
-        },
-        methods: {
-            reSet() {
-                this.rand_min = 0;
-                this.rand_max = 100;
-                this.rand_size = 0;
-            },
-            heap_sort_flex() {
-                let arr = this.sort_data.split(",");
-                this.sort_final = this.heap_sort(arr).join(',');
-            },
-            heap_sort_rand() {
-                let cnt = this.rand_size;
+            const heap_sort_flex=function() {
+                let arr = state.sort_data.split(",");
+                state.sort_final = heap_sort(arr).join(',');
+            }
+            const heap_sort_rand=function() {
+                let cnt = state.rand_size;
                 let arr = [];
-                let size = this.rand_max - this.rand_min;
-                console.log(this.rand_min);
-                console.log(this.rand_max);
+                let size = state.rand_max - state.rand_min;
+                console.log(state.rand_min);
+                console.log(state.rand_max);
                 console.log(size);
                 while (cnt--) {
                     let tmp = Math.floor(Math.random() * (size + 1));
-                    arr.push(tmp + parseInt(this.rand_min));
+                    arr.push(tmp + parseInt(state.rand_min));
                 }
                 console.log(arr);
-                this.sort_final = this.heap_sort(arr).join(',');
-                console.log(this.sort_final);
-            },
-            heap_sort(v) {
+                state.sort_final =heap_sort(arr).join(',');
+                console.log(state.sort_final);
+            }
+            const heap_sort=function(v) {
                 var arr = (v.slice(0)).map(v => parseInt(v));
                 var length=arr.length;
-                this.sort_datas = [];
-                var track = this.sort_datas;
+                state.sort_datas = [];
+                var track = state.sort_datas;
                 if(length<1)return arr
                 function swap(i,j){
                     let tmp=arr[i]
@@ -195,7 +193,7 @@
                         obj.before_data.push(tmp)
                         if(j===length-1)break
                         i=j
-                       j=(j*2+2<length)?j*2+2:length-1
+                        j=(j*2+2<length)?j*2+2:length-1
                     }
                     swap(0,length-1)
                     length--
@@ -213,6 +211,13 @@
                     track.push(obj)
                 }
                 return arr
+            }
+            return {
+                ...toRefs(state),
+                reSet,
+                heap_sort,
+                heap_sort_flex,
+                heap_sort_rand
             }
         }
     }
